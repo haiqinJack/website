@@ -17,7 +17,7 @@ app.set('view engine', 'html');
 app.engine('html', ejsMate);
 
 //设置文件静态目录
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static('public'));
 
 //解析中间件 req.body
 app.use(bodyParser.json());
