@@ -29,6 +29,6 @@ app.use(flash());
 
 routes(app);
 
-app.listen(80, function() {
+app.listen(3000, function() {
 	console.log(`listen app success`);
 });
