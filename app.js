@@ -6,14 +6,7 @@ var multer = require('multer');
 var session = require('express-session');
 var flash = require('connect-flash');
 var ejsMate = require('ejs-mate');
-// var fs = require('fs');
-// var https = require('https');
-
-// var privateKey = fs.readFileSync('./3_www.c-fafn.com.key', 'utf8');
-// var certificate = fs.readFileSync('./2_www.c-fafn.com.crt', 'utf8');
-// var ca = fs.readFileSync('./1_root_bundle.crt', 'utf8');
-// var credentials = {key: privateKey, cert: certificate, ca: ca};
-
+var config = require('./configs/default');
 
 var routes = require('./routes');
 
@@ -35,6 +28,12 @@ app.use(cookieParser());
 // //flash 中间价，用来显示通知
 app.use(flash());
 
+app.locals.config = {
+	title: config.title,
+	keywords: config.keywords,
+	description: config.description
+};
+
 routes(app);
 
-app.listen(80);
+app.listen(config.port);
